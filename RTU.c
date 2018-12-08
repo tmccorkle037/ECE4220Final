@@ -103,9 +103,11 @@ int main(int argc, char *argv[])
 
 	char* myIP = inet_ntoa( ((struct sockaddr_in *)&myReq.ifr_addr)->sin_addr );
 	
-	pthread_t b1_thread;
+	pthread_t b1Thread;
 	
-	pthread_create(&b1_thread, NULL, checkB1, (void*)&myIP);
+	pthread_create(&b1Thread, NULL, checkB1, (void*)&myIP);
+	
+	pthread_join(b1Thread, NULL);
 }
 
 
