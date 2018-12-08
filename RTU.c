@@ -27,10 +27,6 @@ struct logData{
 	char type[50];
 }Log;
 
-void* checkB1( void* info)
-{
-	
-}
 
 void setup()
 {
@@ -47,6 +43,22 @@ void setup()
 	digitalWrite(LED1, LOW);
 	digitalWrite(LED2, LOW);
 	digitalWrite(LED3, LOW);
+}
+
+void* checkB1( void* info)
+{
+	char *ip = (char*)info;	//get ip address
+	struct timeval timeStamp;
+	gettimeofday(&timeStamp, NULL);
+	
+//	while(1)
+//	{
+		if(digitalRead(BUTTON1) == 1){
+			printf("button was pressed");
+		}
+
+	//}
+
 }
 
 int main(int argc, char *argv[])
